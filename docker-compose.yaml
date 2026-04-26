@@ -1,0 +1,24 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    container_name: backend_cont2
+    ports:
+      - "5002:5000"
+    environment:
+      - DB_HOST=ecommerce.ctuwsqiwsbci.ap-south-1.rds.amazonaws.com
+      - DB_USER=admin123
+      - DB_PASSWORD=password123
+      - DB_NAME=ecommerce_db
+      - DB_PORT=3306
+      - JWT_SECRET=your_super_secret_key_2024
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_cont2
+    ports:
+      - "3002:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
