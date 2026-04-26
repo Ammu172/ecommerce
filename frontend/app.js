@@ -1,3 +1,4 @@
+const API_URL = "http://13.203.27.155:5002//api";
 let token = localStorage.getItem('token') || null;
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let selectedPayment = null;
